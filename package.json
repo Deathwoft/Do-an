@@ -1,0 +1,24 @@
+{
+  "name": "do-an-chat-online",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start",
+    "build": "npm --prefix client run build",
+    "check": "node scripts/check.js",
+    "test": "npm --prefix server test",
+    "predev": "npm run check && npm test",
+    "prestart": "npm run check && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
